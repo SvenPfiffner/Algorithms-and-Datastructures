@@ -6,15 +6,19 @@ public class Sort {
 	
 	/**
 	 * Sorts a given array with bubblesort
-	 * @return array sorted in ascending order
 	 */
-	public static int[] BubbleSort(int[] array) {
-		return null;
+	public static void BubbleSort(int[] array) {
+		for(int i = 0; i< array.length; i++) {
+			for(int j = 0; j < array.length - (1+i); j++) {
+				if(array[j] > array[j+1]) {
+					swapKeys(array, j, j+1);
+				}
+			}
+		}
 	}
 	
 	/**
 	 * Sorts a given array with insertion sort
-	 * @return array sorted in ascending order
 	 */
 	public static void InsertionSort(int[] array) {
 	
@@ -29,7 +33,6 @@ public class Sort {
 	
 	/**
 	 * Sorts a given array with selection sort
-	 * @return array sorted in ascending order
 	 */
 	public static void SelectionSort(int[] array) {
 		for(int i = 0; i<array.length; i++) { //Go trough array
@@ -46,7 +49,6 @@ public class Sort {
 	
 	/**
 	 * Sorts a given array with heap sort
-	 * @return array sorted in ascending order
 	 */
 	public static int[] HeapSort(int[] array) {
 		return null;
@@ -54,7 +56,6 @@ public class Sort {
 	
 	/**
 	 * Sorts a given array with merge sort
-	 * @return array sorted in ascending order
 	 */
 	public static int[] MergeSort(int[] array) {
 		return null;
@@ -62,7 +63,6 @@ public class Sort {
 	
 	/**
 	 * Sorts a given array with quick sort
-	 * @return array sorted in ascending order
 	 */
 	public static int[] QuickSort(int[] array) {
 		return null;
