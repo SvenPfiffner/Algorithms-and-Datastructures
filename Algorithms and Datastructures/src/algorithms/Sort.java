@@ -1,5 +1,7 @@
 package algorithms;
 
+import java.util.Arrays;
+
 public class Sort {
 	
 	/**
@@ -14,8 +16,15 @@ public class Sort {
 	 * Sorts a given array with insertion sort
 	 * @return array sorted in ascending order
 	 */
-	public static int[] InsertionSort(int[] array) {
-		return null;
+	public static void InsertionSort(int[] array) {
+	
+		for(int i = 0; i< array.length; i++) {
+			int newKeyPos = i;
+			while(newKeyPos>0 && array[newKeyPos-1] > array[newKeyPos]) {
+				swapKeys(array, newKeyPos, newKeyPos-1);
+				newKeyPos --;
+			}
+		}
 	}
 	
 	/**
