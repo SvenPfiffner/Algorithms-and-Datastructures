@@ -55,18 +55,33 @@ public class Sort {
 	}
 	
 	/**
-	 * Sorts a given array with merge sort
+	 * Sorts an array with merge sort
 	 */
 	public static int[] MergeSort(int[] array) {
-		return null;
+		
+		if(array.length <= 1) { //If array is of size <= 1 it is already sorted
+			return array;
+		}
+		
+		int[] array1 = Arrays.copyOfRange(array, 0, array.length/2);
+		int[] array2 = Arrays.copyOfRange(array, array.length/2, array.length);
+
+		return merge(MergeSort(array1), MergeSort(array2));
+		
 	}
-	
+	N
 	/**
 	 * Sorts a given array with quick sort
 	 */
 	public static int[] QuickSort(int[] array) {
 		return null;
 	}
+	
+	/*
+	 * ---------------------------------------------
+	 * INTERNAL USE ONLY
+	 * ---------------------------------------------
+	 */
 	
 	/**
 	 * Swaps keys at index 1 and index 2 in a given array
@@ -75,5 +90,45 @@ public class Sort {
 		int placeHolder = array[index2];
 		array[index2] = array[index1];
 		array[index1] = placeHolder;
+	}
+	
+	/**
+	 * Merges two sorted arrays into a new sorted array
+	 */
+	private static int[] merge(int[] array1, int[] array2) {
+		int[] mergedArray = new int[array1.length + array2.length]; //Stores merged array
+		
+		//Used to go trough each array
+		int array1Pointer = 0;
+		int array2Pointer = 0;
+		int index = 0;
+		
+		while(array1Pointer < array1.length && array2Pointer < array2.length) {
+			
+			if(array1[array1Pointer] <= array2[array2Pointer]) {
+				mergedArray[index] = array1[array1Pointer];
+				array1Pointer++;
+			}
+			else {
+				mergedArray[index] = array2[array2Pointer];
+				array2Pointer++;
+			}
+			
+			index++;
+		}
+		
+		while(array1Pointer < array1.length) {
+			mergedArray[index] = array1[array1Pointer];
+			array1Pointer++;
+			index++;
+		}
+		
+		while(array2Pointer < array2.length) {
+			mergedArray[index] = array2[array2Pointer];
+			array2Pointer++;
+			index++;
+		}
+		
+		return mergedArray;
 	}
 }
