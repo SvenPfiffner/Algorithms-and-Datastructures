@@ -50,8 +50,16 @@ public class Sort {
 	/**
 	 * Sorts a given array with heap sort
 	 */
-	public static int[] HeapSort(int[] array) {
-		return null;
+	public static void HeapSort(int[] array) {
+		
+		for(int i = array.length / 2 - 1; i>= 0; i--) { //Build a maxHeap out of array
+			restoreMaxHeapCondition(array, i, array.length);
+		}
+		
+		for(int i = array.length -1; i>=0; i--) { //Extract root and rearrange heap n times
+			swapKeys(array, 0, i);
+			restoreMaxHeapCondition(array, 0, i);
+		}
 	}
 	
 	/**
@@ -69,7 +77,7 @@ public class Sort {
 		return merge(MergeSort(array1), MergeSort(array2));
 		
 	}
-	N
+
 	/**
 	 * Sorts a given array with quick sort
 	 */
@@ -130,5 +138,31 @@ public class Sort {
 		}
 		
 		return mergedArray;
+	}
+
+	/**
+	 * Swaps keys in the array such that it fulfills the conditions of a max heap between from[inclusive] and to[exclusive]
+	 */
+	private static void restoreMaxHeapCondition(int[] array, int from, int to) {
+		
+		//Used to traverse tree
+		int largestElement = from;
+		int leftChild = 2*from + 1;
+		int rightChild = 2*from + 2;
+		
+		
+		if(leftChild < to && array[leftChild] > array[largestElement]) { //If left child is bigger than biggest element
+			largestElement = leftChild; //Set as biggest element
+		}
+		
+		if(rightChild < to && array[rightChild] > array[largestElement]) { //If right child is bigger than biggest element
+			largestElement = rightChild; //Set as biggest element
+		}
+		
+		if(largestElement != from) { //If root is not biggest
+			swapKeys(array, from, largestElement); //Swap so it is
+			restoreMaxHeapCondition(array, largestElement, to); //restore heap condition on broken subtree
+		}
+		
 	}
 }
