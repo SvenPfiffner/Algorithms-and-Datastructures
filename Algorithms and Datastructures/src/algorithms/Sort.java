@@ -80,9 +80,12 @@ public class Sort {
 
 	/**
 	 * Sorts a given array with quick sort
+	 * 
+	 * !IT IS COMMON TO USE RANDOM PIVOT ELEMENTS. HOWEVER, TO CLARIFY THE PROCESS THIS IMPLEMENTATION
+	 * ALWAYS CHOOSES THE RIGHTMOST KEY AS PIVOT!
 	 */
-	public static int[] QuickSort(int[] array) {
-		return null;
+	public static void QuickSort(int[] array) {
+		recursiveQuickSort(array, 0, array.length-1); //Starts recursive quicksort on the array
 	}
 	
 	/*
@@ -140,6 +143,46 @@ public class Sort {
 		return mergedArray;
 	}
 
+	/**
+	 * Quicksort recursion is called from public quicksort function
+	 */
+	private static void recursiveQuickSort(int[] array, int from, int to) {
+		//Abort condition for recursion: Array with 1 element is sorted
+		if(from >= to) {
+			return;
+		}
+		
+		//Pointers used to traverse array
+		int leftPointer = from;
+		int rightPointer = to - 1;
+		
+		int pivot = array[to]; //Pivot is last element
+		
+		do { //Repeat while left pointer has not overlapped with right pointer
+			
+			while(array[leftPointer] <= pivot && leftPointer < to) { //Move left pointer until pivot is reached or element greather than pivot was found
+				leftPointer++;
+			}
+			
+			while(array[rightPointer] > pivot && rightPointer > from) { //Move right pointer until first element is reached or element smaller than pivot was found
+				rightPointer--;
+			}
+			
+			if(leftPointer < rightPointer) { //If pointers did not overlap in the process, swap keys
+				swapKeys(array, leftPointer, rightPointer);
+			}
+			
+		} while(leftPointer < rightPointer);
+		
+		if(array[leftPointer] > pivot) { //If after movement of pointers left pointer is bigger than pivot
+			swapKeys(array, leftPointer, to); //Swap
+		}
+		
+		recursiveQuickSort(array, from, leftPointer - 1); //Sort subarray left from pivot
+		recursiveQuickSort(array, leftPointer + 1, to); //Sort subarray right from pivot
+		
+	}
+	
 	/**
 	 * Swaps keys in the array such that it fulfills the conditions of a max heap between from[inclusive] and to[exclusive]
 	 */
