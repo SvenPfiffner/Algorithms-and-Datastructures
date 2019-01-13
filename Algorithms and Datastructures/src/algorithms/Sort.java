@@ -13,8 +13,8 @@ public class Sort {
 	 * Sorts a given array with bubblesort
 	 */
 	public static void BubbleSort(int[] array) {
-		for(int i = 0; i< array.length; i++) { //Repeat n times
-			for(int j = 0; j < array.length - (1+i); j++) { //"Bubble" biggest element of subarray [0: array.length - i] to top
+		for(int i = 0; i< array.length; i++) { 					//Repeat n times
+			for(int j = 0; j < array.length - (1+i); j++) { 	//"Bubble" biggest element of subarray [0: array.length - i] to top
 				if(array[j] > array[j+1]) {
 					swapKeys(array, j, j+1);
 				}
@@ -27,9 +27,9 @@ public class Sort {
 	 */
 	public static void InsertionSort(int[] array) {
 	
-		for(int i = 0; i< array.length; i++) { //Repeat n times
-			int newKeyPos = i; //New position of the key
-			while(newKeyPos>0 && array[newKeyPos-1] > array[newKeyPos]) { //Swap back until final destination is reached
+		for(int i = 0; i< array.length; i++) { 								//Repeat n times
+			int newKeyPos = i; 												//New position of the key
+			while(newKeyPos>0 && array[newKeyPos-1] > array[newKeyPos]) { 	//Swap back until final destination is reached
 				swapKeys(array, newKeyPos, newKeyPos-1);
 				newKeyPos --;
 			}
@@ -76,8 +76,8 @@ public class Sort {
 			return array;
 		}
 		
-		int[] array1 = Arrays.copyOfRange(array, 0, array.length/2); //Left subarray
-		int[] array2 = Arrays.copyOfRange(array, array.length/2, array.length); //Right subarray
+		int[] array1 = Arrays.copyOfRange(array, 0, array.length/2); 				//Left subarray
+		int[] array2 = Arrays.copyOfRange(array, array.length/2, array.length); 	//Right subarray
 
 		return merge(MergeSort(array1), MergeSort(array2)); //Merge sorted left and right subarray
 		
@@ -103,9 +103,9 @@ public class Sort {
 	 * Swaps keys at index 1 and index 2 in a given array
 	 */
 	private static void swapKeys(int[] array, int index1, int index2) {
-		int placeHolder = array[index2]; //Store temp value
-		array[index2] = array[index1]; //Swap 2 with 1
-		array[index1] = placeHolder; //Set 1 to temp value
+		int placeHolder = array[index2]; 	//Store temp value
+		array[index2] = array[index1]; 		//Swap 2 with 1
+		array[index1] = placeHolder; 		//Set 1 to temp value
 	}
 	
 	/**
@@ -133,14 +133,14 @@ public class Sort {
 			index++; //Increase index of mergedArray
 		}
 		
-		while(array1Pointer < array1.length) { //While array 1 is not fully traversed
-			mergedArray[index] = array1[array1Pointer]; //Add all remaining elements
+		while(array1Pointer < array1.length) { 				//While array 1 is not fully traversed
+			mergedArray[index] = array1[array1Pointer]; 	//Add all remaining elements
 			array1Pointer++;
 			index++;
 		}
 		
-		while(array2Pointer < array2.length) { //While array 2 is not fully traversed
-			mergedArray[index] = array2[array2Pointer]; //Add all remaining elements
+		while(array2Pointer < array2.length) { 				//While array 2 is not fully traversed
+			mergedArray[index] = array2[array2Pointer]; 	//Add all remaining elements
 			array2Pointer++;
 			index++;
 		}
@@ -179,12 +179,12 @@ public class Sort {
 			
 		} while(leftPointer < rightPointer);
 		
-		if(array[leftPointer] > pivot) { //If after movement of pointers left pointer is bigger than pivot
-			swapKeys(array, leftPointer, to); //Swap
+		if(array[leftPointer] > pivot) { 		//If after movement of pointers left pointer is bigger than pivot
+			swapKeys(array, leftPointer, to); 	//Swap
 		}
 		
-		recursiveQuickSort(array, from, leftPointer - 1); //Sort subarray left from pivot
-		recursiveQuickSort(array, leftPointer + 1, to); //Sort subarray right from pivot
+		recursiveQuickSort(array, from, leftPointer - 1); 	//Sort subarray left from pivot
+		recursiveQuickSort(array, leftPointer + 1, to); 	//Sort subarray right from pivot
 		
 	}
 	
@@ -199,17 +199,17 @@ public class Sort {
 		int rightChild = 2*from + 2;
 		
 		
-		if(leftChild < to && array[leftChild] > array[largestElement]) { //If left child is bigger than biggest element
-			largestElement = leftChild; //Set as biggest element
+		if(leftChild < to && array[leftChild] > array[largestElement]) { 	//If left child is bigger than biggest element
+			largestElement = leftChild; 									//Set as biggest element
 		}
 		
-		if(rightChild < to && array[rightChild] > array[largestElement]) { //If right child is bigger than biggest element
-			largestElement = rightChild; //Set as biggest element
+		if(rightChild < to && array[rightChild] > array[largestElement]) { 	//If right child is bigger than biggest element
+			largestElement = rightChild; 									//Set as biggest element
 		}
 		
-		if(largestElement != from) { //If root is not biggest
-			swapKeys(array, from, largestElement); //Swap so it is
-			restoreMaxHeapCondition(array, largestElement, to); //restore heap condition on broken subtree
+		if(largestElement != from) { 										//If root is not biggest
+			swapKeys(array, from, largestElement); 							//Swap so it is
+			restoreMaxHeapCondition(array, largestElement, to);				//restore heap condition on broken subtree
 		}
 		
 	}

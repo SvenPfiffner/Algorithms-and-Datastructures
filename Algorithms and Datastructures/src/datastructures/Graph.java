@@ -16,9 +16,9 @@ import java.util.Scanner;
  */
 public class Graph {
 
-	private int vertexCount; //Number of vertices in the graph
-	private int edgeCount; //Number of edges in the graph
-	private LinkedList<Integer>[] adj; //Adjacency list of the graph
+	private int vertexCount; 			//Number of vertices in the graph
+	private int edgeCount; 				//Number of edges in the graph
+	private LinkedList<Integer>[] adj; 	//Adjacency list of the graph
 	
 	/**
 	 * Constructor for a graph with 'vertexCount' vertices and no edges
@@ -40,8 +40,8 @@ public class Graph {
 	 * Constructor for a graph constructed out of DataInputStream
 	 */
 	public Graph(DataInputStream input) throws IOException {
-		this(input.readInt()); //Call constructor with first int input as vertexCount
-		int edgeCount = input.readInt(); //Used for loop
+		this(input.readInt()); 				//Call constructor with first int input as vertexCount
+		int edgeCount = input.readInt(); 	//Used for loop
 		//Add all edges in input
 		for(int i = 0; i < edgeCount; i++) {
 			int v = input.readInt();
@@ -65,9 +65,9 @@ public class Graph {
 	 * @param w
 	 */
 	public void addEdge(int v, int w) {
-		adj[v].add(w); //Add w as adjacent to v
-		adj[w].add(v); //Add v as adjacent to w
-		edgeCount++; //New edge was created, increase edgeCount
+		adj[v].add(w); 	//Add w as adjacent to v
+		adj[w].add(v);	//Add v as adjacent to w
+		edgeCount++; 	//New edge was created, increase edgeCount
 	}
 	
 	/**

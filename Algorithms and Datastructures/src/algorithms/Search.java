@@ -14,9 +14,9 @@ public class Search {
 	 * @return Position of found element; -1 if element was not found
 	 */
 	public static int LinearSearch(int[] array, int keyToSearch) {
-		for(int i = 0; i < array.length; i++) { //Foreach position in array
-			if(array[i] == keyToSearch) { //Check if key is at position
-				return i; //Key was found at position i
+		for(int i = 0; i < array.length; i++) { 	//Foreach position in array
+			if(array[i] == keyToSearch) { 			//Check if key is at position
+				return i; 							//Key was found at position i
 			}
 		}
 		return -1; //Key was not found, return -1
@@ -40,16 +40,16 @@ public class Search {
 			else if(array[cutPosition] < keyToSearch) { //Move left pointer if needed
 				leftPointer = cutPosition;
 			}
-			else if(array[cutPosition] == keyToSearch){ //If key is at cut position
-				return cutPosition; //return cutposition
+			else if(array[cutPosition] == keyToSearch){ 	//If key is at cut position
+				return cutPosition; 						//return cutposition
 			}
 			
-			if(rightPointer - leftPointer == 1) { //As soon as no cuts can be made anymore
-				if (array[leftPointer] == keyToSearch) { //If key is at left pointer
-					return leftPointer; //return left pointer
+			if(rightPointer - leftPointer == 1) { 			//As soon as no cuts can be made anymore
+				if (array[leftPointer] == keyToSearch) { 	//If key is at left pointer
+					return leftPointer; 					//return left pointer
 				}
-				else if (array[rightPointer] == keyToSearch) { //If key is at right pointer
-					return rightPointer; //return right pointer
+				else if (array[rightPointer] == keyToSearch) { 		//If key is at right pointer
+					return rightPointer; 							//return right pointer
 				}
 				else {
 					return -1; //Key not found, return 0
