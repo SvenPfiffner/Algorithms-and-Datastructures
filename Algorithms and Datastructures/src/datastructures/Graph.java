@@ -8,7 +8,6 @@ package datastructures;
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 /**
  * A class which implements graphs as a datastructure and is used by the graph traversal algorithms of the algorithms package
