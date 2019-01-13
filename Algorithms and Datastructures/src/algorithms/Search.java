@@ -1,3 +1,8 @@
+/*
+* Author: svenp
+* 12.01.2019
+*/
+
 package algorithms;
 
 import java.util.Arrays;

@@ -1,3 +1,8 @@
+/*
+* Author: svenp
+* 13.01.2019
+*/
+
 package algorithms;
 
 import java.util.Arrays;
@@ -8,8 +13,8 @@ public class Sort {
 	 * Sorts a given array with bubblesort
 	 */
 	public static void BubbleSort(int[] array) {
-		for(int i = 0; i< array.length; i++) {
-			for(int j = 0; j < array.length - (1+i); j++) {
+		for(int i = 0; i< array.length; i++) { //Repeat n times
+			for(int j = 0; j < array.length - (1+i); j++) { //"Bubble" biggest element of subarray [0: array.length - i] to top
 				if(array[j] > array[j+1]) {
 					swapKeys(array, j, j+1);
 				}
@@ -22,9 +27,9 @@ public class Sort {
 	 */
 	public static void InsertionSort(int[] array) {
 	
-		for(int i = 0; i< array.length; i++) {
-			int newKeyPos = i;
-			while(newKeyPos>0 && array[newKeyPos-1] > array[newKeyPos]) {
+		for(int i = 0; i< array.length; i++) { //Repeat n times
+			int newKeyPos = i; //New position of the key
+			while(newKeyPos>0 && array[newKeyPos-1] > array[newKeyPos]) { //Swap back until final destination is reached
 				swapKeys(array, newKeyPos, newKeyPos-1);
 				newKeyPos --;
 			}
@@ -66,15 +71,15 @@ public class Sort {
 	 * Sorts an array with merge sort
 	 */
 	public static int[] MergeSort(int[] array) {
-		
-		if(array.length <= 1) { //If array is of size <= 1 it is already sorted
+		//Abort condition for recursion: If array is of size <= 1 it is already sorted
+		if(array.length <= 1) {
 			return array;
 		}
 		
-		int[] array1 = Arrays.copyOfRange(array, 0, array.length/2);
-		int[] array2 = Arrays.copyOfRange(array, array.length/2, array.length);
+		int[] array1 = Arrays.copyOfRange(array, 0, array.length/2); //Left subarray
+		int[] array2 = Arrays.copyOfRange(array, array.length/2, array.length); //Right subarray
 
-		return merge(MergeSort(array1), MergeSort(array2));
+		return merge(MergeSort(array1), MergeSort(array2)); //Merge sorted left and right subarray
 		
 	}
 
@@ -98,9 +103,9 @@ public class Sort {
 	 * Swaps keys at index 1 and index 2 in a given array
 	 */
 	private static void swapKeys(int[] array, int index1, int index2) {
-		int placeHolder = array[index2];
-		array[index2] = array[index1];
-		array[index1] = placeHolder;
+		int placeHolder = array[index2]; //Store temp value
+		array[index2] = array[index1]; //Swap 2 with 1
+		array[index1] = placeHolder; //Set 1 to temp value
 	}
 	
 	/**
@@ -114,33 +119,33 @@ public class Sort {
 		int array2Pointer = 0;
 		int index = 0;
 		
-		while(array1Pointer < array1.length && array2Pointer < array2.length) {
+		while(array1Pointer < array1.length && array2Pointer < array2.length) { //While both arrays are not fully traversed
 			
-			if(array1[array1Pointer] <= array2[array2Pointer]) {
+			if(array1[array1Pointer] <= array2[array2Pointer]) { //Choose element of array 1 if bigger than that of array 2
 				mergedArray[index] = array1[array1Pointer];
 				array1Pointer++;
 			}
-			else {
-				mergedArray[index] = array2[array2Pointer];
+			else { //Choose element of array 2 if bigger than that of array 1
+				mergedArray[index] = array2[array2Pointer]; 
 				array2Pointer++;
 			}
 			
-			index++;
+			index++; //Increase index of mergedArray
 		}
 		
-		while(array1Pointer < array1.length) {
-			mergedArray[index] = array1[array1Pointer];
+		while(array1Pointer < array1.length) { //While array 1 is not fully traversed
+			mergedArray[index] = array1[array1Pointer]; //Add all remaining elements
 			array1Pointer++;
 			index++;
 		}
 		
-		while(array2Pointer < array2.length) {
-			mergedArray[index] = array2[array2Pointer];
+		while(array2Pointer < array2.length) { //While array 2 is not fully traversed
+			mergedArray[index] = array2[array2Pointer]; //Add all remaining elements
 			array2Pointer++;
 			index++;
 		}
 		
-		return mergedArray;
+		return mergedArray; //Return fully merged array
 	}
 
 	/**
