@@ -16,7 +16,7 @@ import java.util.LinkedList;
  * A class which implements undirected-weighted graphs as a datastructure and is used by the graph traversal algorithms of the algorithms package
  * NOTE: Implementation via adjacency list and the edge datastructure
  */
-public class WeightedMonoGraph {
+public class WeightedMonoGraph implements WeightedGraph{
 	
 	private int vertexCount; 			//Number of vertices
 	private int edgeCount; 				//Number of edges
