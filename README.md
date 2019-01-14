@@ -15,5 +15,15 @@ This repository contains all the Datastructures and Algorithms that were discuss
   - Merge-Sort
   - Quick-Sort
 
+- Graphs
+  - MonoGraphs
+  - DiGraphs
+  - Weighted MonoGraphs
+  - Weighted DiGraphs
+  - Breadth First Search / Shortest-Pathfinder
+  - Depth First Search / Pathfinder
+  - Topological Sorting
+  - Directed Cycle finder
+  
 ## Disclaimer
 This repository and its content is meant as an exam-preparation and was made by me, a student of ETH-Zurich, to practice the concepts of the course. It is in no way connected to the university itself and ETH-Zurich may not be held responsible for any content.
