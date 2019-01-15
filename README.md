@@ -28,5 +28,9 @@ This repository contains all the Datastructures and Algorithms that were discuss
   - Kruskals Minimal Span Tree Algorithm
   - Dijkstras Shortest Path Algorithm
   
+- Dynamic Programming
+  - Calculating Fibonacci numbers
+  - 0/1 Knapsack
+  
 ## Disclaimer
 This repository and its content is meant as an exam-preparation and was made by me, a student of ETH-Zurich, to practice the concepts of the course. It is in no way connected to the university itself and ETH-Zurich may not be held responsible for any content.
