@@ -26,7 +26,7 @@ public class CoinChange {
 		}
 		for(int column = 0; column <= value; column++) {
 			if(column % c[0] == 0) { 	//There is exactly 1 way to make change for a value if it is divisible by the first coin
-				cache[0][column] = 1;
+				cache[0][column] = 1; 
 			}
 			else {
 				cache[0][column] = 0; 	//No way otherwise
