@@ -24,6 +24,9 @@ This repository contains all the Datastructures and Algorithms that were discuss
   - Depth First Search / Pathfinder
   - Topological Sorting
   - Directed Cycle finder
+  - Prims Minimal Span Tree Algorithm
+  - Kruskals Minimal Span Tree Algorithm
+  - Dijkstras Shortest Path Algorithm
   
 ## Disclaimer
 This repository and its content is meant as an exam-preparation and was made by me, a student of ETH-Zurich, to practice the concepts of the course. It is in no way connected to the university itself and ETH-Zurich may not be held responsible for any content.
