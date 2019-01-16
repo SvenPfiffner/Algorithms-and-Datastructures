@@ -39,10 +39,6 @@ public class Knapsack {
 			}
 		}
 		
-		for(int[] row : cache) {
-			System.out.println(Arrays.toString(row));
-		}
-		
 		return cache[availableItems.length][capacity]; 															//Solution is at bottom right corner of cache table
 	}
 }
