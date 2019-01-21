@@ -33,6 +33,7 @@ This repository contains all the Datastructures and Algorithms that were discuss
   - 0/1 Knapsack
   - Coin-Change Problem [Hackerank.com]
   - Maximum Subarray
+  - Largest Ascending/Descending Subsequence
   
 - Misc. [Not part of the course, but interesting nonetheless]
   - Prime factorisation algorithm
