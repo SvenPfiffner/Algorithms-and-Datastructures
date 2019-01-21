@@ -19,7 +19,7 @@ public class EulerGroups {
 	 */
 	public static int eulerCardinality(int cardinality) {
 		Integer[] primeFac = algorithms.PrimeFactorisation.primeFac(cardinality); //Compute prime factorisation of cardinality
-		int eulerCardinality = 1; //Stores the euler cardinality
+		int eulerCard = 1; //Stores the euler cardinality
 		
 		for(int i = 0; i < primeFac.length;) { 						//Iterate through all prime factors
 			
@@ -30,9 +30,9 @@ public class EulerGroups {
 				i++;												//Move forward in array
 			} while(i < primeFac.length && primeFac[i] == factor); 	//Repeat as long as end of array is not reached and same factor follows
 			
-			eulerCardinality *= Math.pow(factor, amountOfThisFac-1) * (factor-1); //Add computation to result based on euler function
+			eulerCard *= Math.pow(factor, amountOfThisFac-1) * (factor-1); //Add computation to result based on euler function
 		}
 		
-		return eulerCardinality;
+		return eulerCard;
 	}
 }
